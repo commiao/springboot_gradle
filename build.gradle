@@ -1,0 +1,52 @@
+plugins {
+    id 'groovy'
+    id'java'
+    id 'java-library'
+    id 'org.springframework.boot' version '2.2.6.RELEASE'
+}
+
+repositories {
+    //mavenLocal { setUrl("file://${project.rootDir}/lib") }
+    //首先去本地仓库找
+    mavenLocal()
+    maven { url 'http://172.16.163.52:8081/nexus/content/groups/public/' }
+    maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
+    mavenCentral()
+}
+
+subprojects{
+
+    apply plugin: 'java'
+    apply plugin: 'groovy'
+    apply plugin: 'org.springframework.boot'
+
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+
+    // java编译的时候缺省状态下会因为中文字符而失败
+
+    [compileJava,compileTestJava,javadoc]*.options*.encoding ='UTF-8'
+
+    bootJar {
+        enabled =false  // 默认不需要打可执行jar包
+    }
+
+    repositories {
+        mavenCentral()
+        maven { url'https://repo.spring.io/milestone' }
+
+    }
+
+    dependencies {
+        compileOnly 'org.projectlombok:lombok:1.18.12'
+        annotationProcessor 'org.projectlombok:lombok:1.18.12'
+        testCompileOnly 'org.projectlombok:lombok:1.18.12'
+        testAnnotationProcessor 'org.projectlombok:lombok:1.18.12'
+
+        implementation 'org.springframework.boot:spring-boot-starter:2.2.6.RELEASE'
+        implementation('com.alibaba:fastjson:1.2.76')
+
+        testImplementation('org.springframework.boot:spring-boot-starter-test:2.2.6.RELEASE')
+    }
+
+}

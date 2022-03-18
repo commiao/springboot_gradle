@@ -1,0 +1,12 @@
+jar{
+    enabled = true
+}
+
+bootJar{
+    enabled = true
+}
+
+dependencies {
+    implementation project(':hello_core')
+    implementation 'org.springframework.boot:spring-boot-starter-web:2.2.6.RELEASE'
+}
