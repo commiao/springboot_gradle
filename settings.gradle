@@ -3,6 +3,12 @@ pluginManagement {
         maven {
             url 'https://maven.aliyun.com/repository/gradle-plugin'
         }
+        maven {
+            url 'https://maven.aliyun.com/nexus/content/repositories/gradle-plugin'
+        }
+        maven {
+            url 'https://plugins.gradle.org/m2/'
+        }
         jcenter()
         gradlePluginPortal()
     }
@@ -13,3 +19,4 @@ include 'redisson_demo'
 include 'db_mybatise'
 include 'tool_excel'
 include 'oss_demo'
+include 'mq_activeMq'

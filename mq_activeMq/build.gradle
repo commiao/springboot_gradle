@@ -1,0 +1,4 @@
+dependencies {
+    implementation('org.apache.activemq:activemq-all:5.15.2')
+    implementation('org.apache.activemq:activemq-pool:5.9.0')
+}
