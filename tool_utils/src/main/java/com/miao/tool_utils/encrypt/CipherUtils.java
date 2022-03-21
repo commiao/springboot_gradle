@@ -1,6 +1,6 @@
 package com.miao.tool_utils.encrypt;
 
-import base.arch.tools.encrypt.exception.CipherRuntimeException;
+import com.miao.tool_utils.encrypt.exception.CipherRuntimeException;
 import org.apache.commons.lang3.StringUtils;
 
 import java.math.BigInteger;

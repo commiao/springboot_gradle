@@ -1,7 +1,7 @@
 package com.miao.tool_utils.encrypt.aes;
 
-import base.arch.tools.encrypt.Base64Util;
-import base.arch.tools.encrypt.BaseCrypto;
+import com.miao.tool_utils.encrypt.Base64BouncycastleUtil;
+import com.miao.tool_utils.encrypt.BaseCrypto;
 
 import javax.crypto.Cipher;
 import javax.crypto.KeyGenerator;
@@ -34,7 +34,7 @@ public class AESSimpleUtils {
         kgen.init(KEY_SIZE); // 192 and 256 bits may not be available
         SecretKey skey = kgen.generateKey();
         byte[] secretKey1 = skey.getEncoded();
-        return Base64Util.encode(secretKey1);
+        return Base64BouncycastleUtil.encode(secretKey1);
     }
 
     /**
@@ -48,9 +48,9 @@ public class AESSimpleUtils {
     public static String aesEncrypt(String str, String key) throws Exception {
         if (str == null || key == null) return null;
         Cipher cipher = Cipher.getInstance(ENCRYPTION_TYPE);
-        cipher.init(Cipher.ENCRYPT_MODE, new SecretKeySpec(Base64Util.decode(key), ENCRYPTION_ALGORITHM));
+        cipher.init(Cipher.ENCRYPT_MODE, new SecretKeySpec(Base64BouncycastleUtil.decode(key), ENCRYPTION_ALGORITHM));
         byte[] bytes = cipher.doFinal(str.getBytes(ENCODE_TYPE));
-//        return Base64Util.encode(bytes);
+//        return Base64BouncycastleUtil.encode(bytes);
         return BaseCrypto.asHex(bytes);
     }
 
@@ -65,8 +65,8 @@ public class AESSimpleUtils {
     public static String aesDecrypt(String str, String key) throws Exception {
         if (str == null || key == null) return null;
         Cipher cipher = Cipher.getInstance(ENCRYPTION_TYPE);
-        cipher.init(Cipher.DECRYPT_MODE, new SecretKeySpec(Base64Util.decode(key), ENCRYPTION_ALGORITHM));
-//        byte[] bytes = Base64Util.decode(str);
+        cipher.init(Cipher.DECRYPT_MODE, new SecretKeySpec(Base64BouncycastleUtil.decode(key), ENCRYPTION_ALGORITHM));
+//        byte[] bytes = Base64BouncycastleUtil.decode(str);
         byte[] bytes = BaseCrypto.asByte(str);
         bytes = cipher.doFinal(bytes);
         return new String(bytes, ENCODE_TYPE);

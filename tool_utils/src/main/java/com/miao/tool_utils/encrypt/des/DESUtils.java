@@ -1,6 +1,6 @@
 package com.miao.tool_utils.encrypt.des;
 
-import base.arch.tools.encrypt.BaseCrypto;
+import com.miao.tool_utils.encrypt.BaseCrypto;
 import org.apache.commons.codec.binary.Base64;
 
 import javax.crypto.Cipher;

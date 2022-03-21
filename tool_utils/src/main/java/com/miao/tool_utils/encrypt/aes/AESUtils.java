@@ -1,7 +1,7 @@
 package com.miao.tool_utils.encrypt.aes;
 
-import base.arch.tools.encrypt.Base64Util;
-import base.arch.tools.encrypt.BaseCrypto;
+import com.miao.tool_utils.encrypt.Base64BouncycastleUtil;
+import com.miao.tool_utils.encrypt.BaseCrypto;
 import org.apache.commons.codec.DecoderException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -153,7 +153,7 @@ public class AESUtils extends BaseCrypto {
 //		System.out.println(encrypt);
 
         byte[] generateSecretKey = AESUtils.getInstance().generateSecretKey();
-        String encode = Base64Util.encode(generateSecretKey);
+        String encode = Base64BouncycastleUtil.encode(generateSecretKey);
         System.out.println(encode);
     }
 

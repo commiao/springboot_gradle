@@ -1,6 +1,6 @@
 package com.miao.tool_utils.encrypt;
 
-import base.arch.tools.encrypt.exception.CipherRuntimeException;
+import com.miao.tool_utils.encrypt.exception.CipherRuntimeException;
 
 import javax.crypto.Cipher;
 import javax.crypto.SecretKey;

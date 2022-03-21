@@ -1,12 +1,12 @@
 /**
  * Copyright (c) 2011-2014, hubin (243194995@qq.com).
- * <p>
+ *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
  * the License at
- * <p>
+ *
  * http://www.apache.org/licenses/LICENSE-2.0
- * <p>
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
  * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
@@ -33,12 +33,13 @@ import java.security.Security;
  * 依赖bcprov-jdk14-1.48.jar
  * </p>
  * <p>
+ *
  * @author hubin
  * @Date 2014-6-17
  */
-public class Base64Util {
+public class Base64BouncycastleUtil {
 
-	private static final Logger logger = LoggerFactory.getLogger(Base64Util.class);
+	private static final Logger logger = LoggerFactory.getLogger(Base64BouncycastleUtil.class);
 
 	/**
 	 * 文件读取缓冲区大小
@@ -128,7 +129,7 @@ public class Base64Util {
 	 * </p>
 	 *
 	 * @param filePath 文件绝对路径
-	 * @param base64 编码字符串
+	 * @param base64   编码字符串
 	 * @throws Exception
 	 */
 	public static void decodeToFile(String filePath, String base64) throws Exception {
@@ -140,12 +141,10 @@ public class Base64Util {
 	/**
 	 * 文件绝对路径
 	 * <p>
-	 * @param linuxDir
-	 * 				linux存放目录
-	 * @param winDir
-	 * 				win存放目录
-	 * @param fileName
-	 * 				文件名
+	 *
+	 * @param linuxDir linux存放目录
+	 * @param winDir   win存放目录
+	 * @param fileName 文件名
 	 * @return String
 	 */
 	public static String filePath(String linuxDir, String winDir, String fileName) {
@@ -153,7 +152,7 @@ public class Base64Util {
 		if ("\\".equals(File.separator)) {
 			//windows
 			bf.append(winDir);
-		} else if ("/".equals(File.separator)) {
+		} else if ( "/".equals(File.separator)) {
 			//Linux
 			bf.append(linuxDir);
 		}
@@ -202,7 +201,7 @@ public class Base64Util {
 	 * 二进制数据写文件
 	 * </p>
 	 *
-	 * @param bytes 二进制数据
+	 * @param bytes    二进制数据
 	 * @param filePath 文件生成目录
 	 */
 	public static void byteArrayToFile(byte[] bytes, String filePath) throws Exception {
@@ -220,7 +219,7 @@ public class Base64Util {
 				out.write(cache, 0, nRead);
 				out.flush();
 			}
-		} catch (Exception e) {
+		} catch ( Exception e ) {
 			logger.error("byteArrayToFile error: ", e);
 		} finally {
 			out.close();
