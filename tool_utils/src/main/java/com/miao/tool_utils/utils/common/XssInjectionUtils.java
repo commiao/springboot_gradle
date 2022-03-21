@@ -1,6 +1,6 @@
 package com.miao.tool_utils.utils.common;
 
-import org.apache.commons.lang3.StringEscapeUtils;
+import org.apache.commons.text.StringEscapeUtils;
 
 public class XssInjectionUtils {
 
