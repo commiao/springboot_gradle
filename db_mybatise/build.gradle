@@ -1,0 +1,12 @@
+jar{
+    enabled = true
+}
+
+bootJar{
+    enabled = true
+}
+
+dependencies {
+    implementation('org.apache.commons:commons-lang3')
+    implementation('com.github.miemiedev:mybatis-paginator:1.2.15')
+}
