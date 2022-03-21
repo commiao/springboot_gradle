@@ -1,0 +1,7 @@
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-mail:2.6.4'
+    implementation 'org.springframework.boot:spring-boot-starter-freemarker:2.6.4'
+    implementation 'org.springframework.boot:spring-boot-configuration-processor:2.6.4'
+    implementation 'org.springframework.boot:spring-boot-starter:2.6.4'
+    implementation 'org.springframework.boot:spring-boot-starter-web:2.6.4'
+}
