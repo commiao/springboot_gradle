@@ -1,8 +1,10 @@
 dependencies {
+    // springboot封装spring-boot-starter-mail
     implementation 'org.springframework.boot:spring-boot-starter-mail:2.6.4'
+    // freemarker模块依赖
     implementation 'org.springframework.boot:spring-boot-starter-freemarker:2.6.4'
     implementation 'org.springframework.boot:spring-boot-autoconfigure:2.6.4'
     implementation 'org.springframework.boot:spring-boot-configuration-processor:2.6.4'
-    implementation 'org.springframework.boot:spring-boot-starter:2.6.4'
+    implementation 'org.springframework.boot:spring-boot-starter'
     implementation 'org.springframework.boot:spring-boot-starter-web:2.6.4'
 }

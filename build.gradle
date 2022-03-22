@@ -43,11 +43,11 @@ subprojects{
         testCompileOnly 'org.projectlombok:lombok:1.18.12'
         testAnnotationProcessor 'org.projectlombok:lombok:1.18.12'
 
-        implementation 'org.springframework.boot:spring-boot-starter:2.2.6.RELEASE'
+        implementation 'org.springframework.boot:spring-boot-starter:2.6.4'
         implementation('com.alibaba:fastjson:1.2.76')
         implementation('org.apache.commons:commons-lang3:3.8')
 
-        testImplementation('org.springframework.boot:spring-boot-starter-test:2.2.6.RELEASE')
+        testImplementation('org.springframework.boot:spring-boot-starter-test:2.6.4')
     }
 
 }
