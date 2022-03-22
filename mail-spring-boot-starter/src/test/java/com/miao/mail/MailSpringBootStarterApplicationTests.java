@@ -1,4 +1,4 @@
-package com.miao.mailspringbootstarter;
+package com.miao.mail;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

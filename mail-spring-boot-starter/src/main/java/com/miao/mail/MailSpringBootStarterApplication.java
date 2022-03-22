@@ -1,4 +1,4 @@
-package com.miao.mailspringbootstarter;
+package com.miao.mail;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
