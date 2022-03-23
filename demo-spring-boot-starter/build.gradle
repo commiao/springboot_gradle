@@ -1,0 +1,4 @@
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-autoconfigure:2.6.4'
+    implementation 'org.springframework.boot:spring-boot-configuration-processor:2.6.4'
+}

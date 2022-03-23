@@ -27,8 +27,14 @@ subprojects{
 
     [compileJava,compileTestJava,javadoc]*.options*.encoding ='UTF-8'
 
+    bootRun {
+        enabled = false
+    }
     bootJar {
         enabled =false  // 默认不需要打可执行jar包
+    }
+    jar {
+        enabled = true // 编译项目后在 build/lib/ 下生成jar包
     }
 
     repositories {
