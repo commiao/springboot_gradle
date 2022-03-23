@@ -1,8 +1,11 @@
-package com.miao.mail;
+package com.miao.mail.controller;
 
 import com.miao.mail.entry.FreeMarkerMailBean;
 import com.miao.mail.entry.MailBean;
 import com.miao.mail.entry.MimeMailBean;
+import com.miao.mail.handle.MyMailFreeMarkerSend;
+import com.miao.mail.handle.MyMailMimeSend;
+import com.miao.mail.handle.MyMailSimpleSend;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.tomcat.util.http.fileupload.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;

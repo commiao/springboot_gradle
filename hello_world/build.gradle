@@ -1,4 +1,8 @@
 dependencies {
     implementation project(':hello_core')
-    implementation 'org.springframework.boot:spring-boot-starter-web:2.2.6.RELEASE'
+    implementation project(':mail-spring-boot-starter')
+    implementation project(':demo-spring-boot-starter')
+    implementation('org.springframework.boot:spring-boot-starter-web:2.6.4'){
+        changing = true
+    }
 }

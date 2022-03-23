@@ -1,4 +1,4 @@
-package com.miao.mail;
+package com.miao.mail.handle;
 
 import com.miao.mail.config.MailProperties;
 import com.miao.mail.entry.MimeMailBean;
