@@ -15,7 +15,6 @@ import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
 
 @Slf4j
-@Component
 public class MyMailFreeMarkerSend {
     @Autowired
     MailProperties mailProperties;

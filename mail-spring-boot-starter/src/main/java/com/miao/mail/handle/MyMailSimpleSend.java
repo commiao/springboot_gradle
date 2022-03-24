@@ -9,7 +9,6 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Component;
 
 @Slf4j
-@Component
 public class MyMailSimpleSend {
     @Autowired
     MailProperties mailProperties;

@@ -2,7 +2,7 @@ plugins {
     id 'groovy'
     id'java'
     id 'java-library'
-    id 'org.springframework.boot' version '2.2.6.RELEASE'
+    id 'org.springframework.boot' version '2.6.4'
 }
 
 repositories {
