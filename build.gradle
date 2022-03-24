@@ -1,17 +1,21 @@
 plugins {
     id 'groovy'
-    id'java'
+    id 'java'
     id 'java-library'
     id 'org.springframework.boot' version '2.6.4'
 }
 
-repositories {
-    //mavenLocal { setUrl("file://${project.rootDir}/lib") }
-    //首先去本地仓库找
-    mavenLocal()
-    maven { url 'http://172.16.163.52:8081/nexus/content/groups/public/' }
-    maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
-    mavenCentral()
+allprojects {
+    repositories {
+        apply plugin: 'idea'
+
+        //mavenLocal { setUrl("file://${project.rootDir}/lib") }
+        //首先去本地仓库找
+        mavenLocal()
+//        maven { url 'http://172.16.163.52:8081/nexus/content/groups/public/' }
+        maven { url 'https://maven.aliyun.com/nexus/content/groups/public/' }
+        mavenCentral()
+    }
 }
 
 subprojects{
@@ -31,16 +35,10 @@ subprojects{
         enabled = false
     }
     bootJar {
-        enabled =false  // 默认不需要打可执行jar包
+        enabled = false  // 默认不需要打可执行jar包
     }
     jar {
         enabled = true // 编译项目后在 build/lib/ 下生成jar包
-    }
-
-    repositories {
-        mavenCentral()
-        maven { url'https://repo.spring.io/milestone' }
-
     }
 
     dependencies {
