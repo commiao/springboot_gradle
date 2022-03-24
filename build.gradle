@@ -5,10 +5,10 @@ plugins {
     id 'org.springframework.boot' version '2.6.4'
 }
 
-allprojects {
-    repositories {
-        apply plugin: 'idea'
+allprojects {// 所有模块/项目的通用配置
+    apply plugin: 'idea'
 
+    repositories {
         //mavenLocal { setUrl("file://${project.rootDir}/lib") }
         //首先去本地仓库找
         mavenLocal()
