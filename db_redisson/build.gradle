@@ -1,5 +1,5 @@
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web:2.6.4'
     implementation('com.alibaba:fastjson')
-    implementation('org.redisson:redisson-spring-boot-starter:3.13.1')
+    implementation project(':redisson-spring-boot-starter')
 }

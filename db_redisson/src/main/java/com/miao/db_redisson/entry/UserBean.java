@@ -1,4 +1,4 @@
-package com.miao.db_redisson;
+package com.miao.db_redisson.entry;
 
 import lombok.*;
 
@@ -21,4 +21,5 @@ public class UserBean implements Serializable {
     private BigDecimal count;
     private List<UserBean> parents;
     private Map<Integer, UserBean> countMap;
+    private SonBean sonBean;
 }

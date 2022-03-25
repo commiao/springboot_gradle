@@ -1,0 +1,2 @@
+# 自动初始化配置
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=com.miao.db.redisson.RedissonAutoConfiguration
