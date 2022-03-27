@@ -6,6 +6,7 @@ import com.miao.db.redisson.RedisListHander;
 import com.miao.db_redisson.entry.SonBean;
 import com.miao.db_redisson.entry.UserBean;
 import lombok.extern.slf4j.Slf4j;
+import org.redisson.api.RedissonClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -20,8 +21,8 @@ import java.util.concurrent.TimeUnit;
 @Slf4j
 public class HelloController {
 
-//    @Autowired
-//    private RedissonClient redissonClient;
+    @Autowired
+    private RedissonClient redissonClient;
 
     @Autowired
     RedisListHander redisListHander;
