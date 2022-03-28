@@ -43,8 +43,6 @@ subprojects{
     }
 
     dependencies {
-        implementation 'com.testdroid:gradle:2.100.1'
-
         compileOnly 'org.projectlombok:lombok:1.18.12'
         annotationProcessor 'org.projectlombok:lombok:1.18.12'
         testCompileOnly 'org.projectlombok:lombok:1.18.12'
