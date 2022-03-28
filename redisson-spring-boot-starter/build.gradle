@@ -1,4 +1,6 @@
 dependencies {
     // apply plugin: 'java-library'
-    api ('org.redisson:redisson-spring-boot-starter:3.16.4')
+    api ('org.redisson:redisson-spring-boot-starter:3.16.4'){
+        exclude group:'org.slf4j', module:'slf4j-api'
+    }
 }

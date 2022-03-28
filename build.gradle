@@ -8,6 +8,12 @@ plugins {
 allprojects {// 所有模块/项目的通用配置
     apply plugin: 'idea'
 
+    configurations {
+        compile.exclude module: 'spring-boot-starter-logging'//排除对默认logging的依赖
+        compile.exclude module: 'log4j'
+        compile.exclude module: 'HikariCP-java7'
+    }
+
     repositories {
         //mavenLocal { setUrl("file://${project.rootDir}/lib") }
         //首先去本地仓库找

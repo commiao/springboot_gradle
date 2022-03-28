@@ -7,6 +7,11 @@ import org.springframework.context.annotation.Configuration;
 public class RedissonAutoConfiguration {
 
     @Bean
+    public RedisObjectHander redisObjectHander() {
+        return new RedisObjectHander();
+    }
+
+    @Bean
     public RedisListHander redisListHander() {
         return new RedisListHander();
     }

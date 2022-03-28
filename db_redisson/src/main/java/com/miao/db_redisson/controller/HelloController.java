@@ -3,9 +3,11 @@ package com.miao.db_redisson.controller;
 
 import com.alibaba.fastjson.JSONObject;
 import com.miao.db.redisson.RedisListHander;
+import com.miao.db.redisson.RedisObjectHander;
 import com.miao.db_redisson.entry.SonBean;
 import com.miao.db_redisson.entry.UserBean;
 import lombok.extern.slf4j.Slf4j;
+import org.redisson.api.RLock;
 import org.redisson.api.RedissonClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,6 +28,8 @@ public class HelloController {
 
     @Autowired
     RedisListHander redisListHander;
+    @Autowired
+    RedisObjectHander redisObjectHander;
 
     private static int count = 0;
 
@@ -33,27 +37,25 @@ public class HelloController {
     private String LOCK_FLAG = "test:jing:redisson_lock";
     private String LIST_KEY = "test:jing:redisson_list";
 
-//    @RequestMapping("/index")
-//    public String index() {
-//        RBucket<Object> bucket = redissonClient.getBucket(TEST_FLAG);
-//        count = 0;
-//        return JSONObject.toJSONString(bucket.get());
-//    }
-//
-//    @RequestMapping(value = "/count", method = RequestMethod.GET)
-//    public int count() {
-//        //对数据进行加锁
-//        RLock lock = redissonClient.getLock(LOCK_FLAG);
-//        //加锁
-//        lock.lock();
-//        count++;
-//        //解锁
-//        lock.unlock();
-//        log.info(String.valueOf(count));
-//        RBucket<Object> bucket = redissonClient.getBucket(TEST_FLAG);
-//        bucket.set(count);
-//        return count;
-//    }
+    @RequestMapping("/index")
+    public String index() {
+        Integer str = redisObjectHander.get(TEST_FLAG);
+        return JSONObject.toJSONString(str);
+    }
+
+    @RequestMapping(value = "/count", method = RequestMethod.GET)
+    public int count() {
+        //对数据进行加锁
+        RLock lock = redissonClient.getLock(LOCK_FLAG);
+        //加锁
+        lock.lock();
+        count++;
+        //解锁
+        lock.unlock();
+        log.info(String.valueOf(count));
+        redisObjectHander.set(TEST_FLAG, count);
+        return count;
+    }
 
     @RequestMapping(value = "/testGetRList", method = RequestMethod.GET)
     public List<UserBean> testGetRList() {
