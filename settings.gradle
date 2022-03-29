@@ -16,7 +16,7 @@ pluginManagement {
 rootProject.name = 'springboot_gradle'
 include ('hello_core', 'hello_world')
 include 'db_mybatise','db_redisson'
-include 'tool_excel','tool_utils'
+include 'tool_excel','tool_utils','tool-excel-easyexcel'
 include 'oss_demo'
 include 'mq_activeMq'
 include 'demo-spring-boot-starter','mail-spring-boot-starter','redisson-spring-boot-starter'
