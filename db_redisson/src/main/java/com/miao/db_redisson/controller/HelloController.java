@@ -4,6 +4,7 @@ package com.miao.db_redisson.controller;
 import com.alibaba.fastjson.JSONObject;
 import com.miao.db.redisson.RedisListHander;
 import com.miao.db.redisson.RedisObjectHander;
+import com.miao.db_redisson.entry.RemoteResponse;
 import com.miao.db_redisson.entry.SonBean;
 import com.miao.db_redisson.entry.UserBean;
 import lombok.extern.slf4j.Slf4j;
@@ -59,7 +60,18 @@ public class HelloController {
 
     @RequestMapping(value = "/testGetRList", method = RequestMethod.GET)
     public List<UserBean> testGetRList() {
-        return redisListHander.get(LIST_KEY);
+        List<UserBean> list = redisListHander.get(LIST_KEY);
+        for (UserBean userBean : list) {
+            log.info("count:" + userBean.getCount().toString());
+            Map<Integer, UserBean> countMap = userBean.getCountMap();
+            UserBean bean = countMap.get(1);
+            log.info("countMap-name:" + bean.getName());
+            SonBean sonBean = userBean.getSonBean();
+            log.info("sonBean-sonname:" + sonBean.getSonName());
+            List<SonBean> dataList = userBean.getDataList();
+            log.info("dataList-sonname:" + dataList.get(0).getSonName());
+        }
+        return list;
     }
 
     @RequestMapping(value = "/testAddRList", method = RequestMethod.GET)
@@ -69,6 +81,25 @@ public class HelloController {
         UserBean userBean2 = buildUserBean("李四", 19);
         redisListHander.add(LIST_KEY, userBean2);
         redisListHander.expire(LIST_KEY, 10, TimeUnit.MINUTES);
+        return "ok";
+    }
+
+    @RequestMapping(value = "/testAddRList1", method = RequestMethod.GET)
+    public String testAddRList1() {
+        RemoteResponse<List<UserBean>> remoteResponse = new RemoteResponse<>();
+        List<UserBean> list = new ArrayList<>();
+        UserBean userBean1 = buildUserBean("张三", 18);
+        redisListHander.add(LIST_KEY, userBean1);
+        UserBean userBean2 = buildUserBean("李四", 19);
+        list.add(userBean1);
+        list.add(userBean2);
+        remoteResponse.setData(list);
+        redisObjectHander.set("test_jing_obj", remoteResponse);
+
+        RemoteResponse<List<UserBean>> remoteResponseGet = redisObjectHander.get("test_jing_obj");
+
+        RemoteResponse<List<?>> remoteResponseGet2 = redisObjectHander.get("test_jing_obj");
+
         return "ok";
     }
 
@@ -103,6 +134,10 @@ public class HelloController {
 
         SonBean sonBean = SonBean.builder().sonName(userName + "儿子").sonDay(-1).createTime(new Date()).build();
         userBean.setSonBean(sonBean);
+        List<SonBean> dataList = new ArrayList<>();
+        dataList.add(sonBean);
+        dataList.add(sonBean);
+        userBean.setDataList(dataList);
         return userBean;
     }
 

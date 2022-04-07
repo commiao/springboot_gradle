@@ -13,7 +13,7 @@ import java.util.Map;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class UserBean implements Serializable {
+public class UserBean<T> implements Serializable {
     private static final long serialVersionUID = 6295320163812685137L;
     private String name;
     private Integer age;
@@ -22,4 +22,5 @@ public class UserBean implements Serializable {
     private List<UserBean> parents;
     private Map<Integer, UserBean> countMap;
     private SonBean sonBean;
+    private List<T> dataList;
 }
