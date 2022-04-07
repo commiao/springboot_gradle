@@ -1,0 +1,5 @@
+dependencies {
+    implementation 'io.springfox:springfox-boot-starter:3.0.0'
+    implementation 'com.github.xiaoymin:swagger-bootstrap-ui:1.9.6'
+    implementation 'org.springframework.boot:spring-boot-starter-web:2.6.4'
+}
