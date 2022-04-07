@@ -16,6 +16,16 @@ public class Base64ApacheUtil {
     //默认编码集
     private static final String ENCODING_DEFAULT = "UTF-8";
 
+    public static String encrypt(String data) {
+        byte[] bytes = Base64.encodeBase64(data.getBytes());
+        return new String(bytes);
+    }
+
+    public static String decodeToString(String encryData) {
+        byte[] bytes = Base64.decodeBase64(encryData.getBytes());
+        return new String(bytes);
+    }
+
     /**
      * @param s
      * @param encoding

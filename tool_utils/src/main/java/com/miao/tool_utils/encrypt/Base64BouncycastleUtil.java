@@ -48,6 +48,10 @@ public class Base64BouncycastleUtil {
 
 	private static final String ENCODING = "UTF-8";
 
+	public static String decodeToString(String encryptData) {
+		return new String(decode(encryptData));
+	}
+
 
 	/**
 	 * <p>
@@ -58,8 +62,12 @@ public class Base64BouncycastleUtil {
 	 * @return
 	 * @throws Exception
 	 */
-	public static byte[] decode(String base64) throws Exception {
+	public static byte[] decode(String base64) {
 		return Base64.decode(base64.getBytes());
+	}
+
+	public static String encrypt(String data) {
+		return encode(data.getBytes());
 	}
 
 
@@ -72,7 +80,7 @@ public class Base64BouncycastleUtil {
 	 * @return
 	 * @throws Exception
 	 */
-	public static String encode(byte[] bytes) throws Exception {
+	public static String encode(byte[] bytes) {
 		return new String(Base64.encode(bytes));
 	}
 
